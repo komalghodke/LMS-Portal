@@ -1,0 +1,231 @@
+.section-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #0f4c81, #2b6cb0);
+  color: white;
+  padding: 2.25rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 24px rgba(15, 76, 129, 0.16);
+}
+
+.hero-banner h2 {
+  margin: 0 0 0.6rem;
+  font-size: 2rem;
+}
+
+.hero-banner p {
+  margin: 0;
+  line-height: 1.6;
+  max-width: 760px;
+}
+
+.section-hero {
+  background: linear-gradient(135deg, #0f4c81, #2b6cb0);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.section-hero h2 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+}
+
+.section-hero p {
+  margin: 0;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.info-card,
+.form-card,
+.gallery-card,
+.article-card,
+.help-card,
+.contact-card {
+  background: white;
+  border: 1px solid #dfe8f1;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.08);
+}
+
+.info-card h3,
+.form-card h3,
+.gallery-card h3,
+.article-card h3,
+.help-card h3,
+.contact-card h3 {
+  margin-top: 0;
+  color: #17324d;
+}
+
+.cta-button,
+.submit-button,
+.secondary-button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cta-button,
+.submit-button {
+  background: #0f4c81;
+  color: white;
+}
+
+.secondary-button {
+  background: #eaf4ff;
+  color: #0f4c81;
+}
+
+.cta-button:hover,
+.submit-button:hover,
+.secondary-button:hover {
+  transform: translateY(-2px);
+}
+
+.form-card form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-card label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #314252;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+  border: 1px solid #cbd7e2;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font: inherit;
+}
+
+.success-message {
+  color: #0f4c81;
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  background: #eaf4ff;
+  color: #0f4c81;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.accordion-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.accordion-item {
+  background: white;
+  border: 1px solid #dfe8f1;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.08);
+}
+
+.accordion-trigger {
+  width: 100%;
+  border: none;
+  background: white;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #17324d;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-content {
+  padding: 0 1.25rem 1.25rem;
+  color: #455562;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #dfe8f1;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.08);
+}
+
+.course-card h3 {
+  margin-top: 0;
+  color: #17324d;
+}
+
+.course-card button {
+  margin-top: 0.75rem;
+}
+
+.syllabus-list {
+  margin-top: 0.9rem;
+  padding-left: 1rem;
+  color: #455562;
+}
+
+.syllabus-list li {
+  margin-bottom: 0.35rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.contact-list a {
+  color: #0f4c81;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .section-hero {
+    padding: 1.5rem;
+  }
+}

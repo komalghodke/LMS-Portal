@@ -1,0 +1,189 @@
+.courses-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.courses-hero {
+  background: linear-gradient(135deg, #0f4c81, #2b6cb0);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px rgba(15, 76, 129, 0.2);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.courses-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text {
+  font-size: 1rem;
+  max-width: 700px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.contact-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+}
+
+.contact-banner a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid #dfe8f1;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(15, 76, 129, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 76, 129, 0.14);
+}
+
+.course-badge {
+  display: inline-block;
+  background: #eaf4ff;
+  color: #0f4c81;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+}
+
+.course-card h3 {
+  color: #17324d;
+  margin-bottom: 0.75rem;
+}
+
+.course-description {
+  color: #556574;
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+.course-highlights {
+  padding-left: 1rem;
+  color: #455562;
+  margin-bottom: 1rem;
+}
+
+.course-highlights li {
+  margin-bottom: 0.4rem;
+}
+
+.course-meta {
+  color: #0f4c81;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.course-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.enroll-button,
+.submit-button {
+  background-color: #0f4c81;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.enroll-button:hover,
+.submit-button:hover {
+  background-color: #0b355c;
+}
+
+.contact-link {
+  color: #0f4c81;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.registration-section {
+  background: #f9fbfd;
+  border: 1px solid #dfe8f1;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.registration-section h2 {
+  color: #17324d;
+  margin-bottom: 1rem;
+}
+
+.registration-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.registration-form label {
+  display: grid;
+  gap: 0.4rem;
+  color: #314252;
+  font-weight: 600;
+}
+
+.registration-form input,
+.registration-form select,
+.registration-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd7e2;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: #0f4c81;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .courses-hero {
+    padding: 1.5rem;
+  }
+
+  .course-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

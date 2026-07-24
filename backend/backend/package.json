@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "lms-portal-backend": "file:.."
+  }
+}
