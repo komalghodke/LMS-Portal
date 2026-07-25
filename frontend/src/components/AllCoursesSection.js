@@ -6,6 +6,7 @@ const courses = [
     id: 1,
     title: 'MEAN Stack Development',
     duration: '12 Weeks',
+    level: 'Full Stack Track',
     description: 'Learn MongoDB, Express, Angular and Node.js for full-stack web development.',
     syllabus: ['MongoDB Basics', 'Express APIs', 'Angular Components', 'Node.js Deployment']
   },
@@ -13,6 +14,7 @@ const courses = [
     id: 2,
     title: 'MERN Stack Development',
     duration: '12 Weeks',
+    level: 'Frontend + Backend',
     description: 'Master React, Node.js, Express and MongoDB to build modern applications.',
     syllabus: ['React Foundations', 'State Management', 'Express Routing', 'Deployment with Vercel']
   },
@@ -20,6 +22,7 @@ const courses = [
     id: 3,
     title: 'Java Programming',
     duration: '10 Weeks',
+    level: 'Core Programming',
     description: 'Strengthen core Java concepts and build backend application logic confidently.',
     syllabus: ['Core Java', 'Advanced Java', 'Collections and Streams', 'Spring Boot Basics']
   },
@@ -27,6 +30,7 @@ const courses = [
     id: 4,
     title: 'GenAI for Developers',
     duration: '8 Weeks',
+    level: 'AI Skills',
     description: 'Explore AI-driven development, prompt engineering and practical GenAI integrations.',
     syllabus: ['Prompt Engineering', 'LLM workflows', 'AI APIs', 'Project Integration']
   }
@@ -58,7 +62,10 @@ function AllCoursesSection() {
               {isOpen && (
                 <div className="accordion-content">
                   <p>{course.description}</p>
-                  <p><strong>Duration:</strong> {course.duration}</p>
+                  <div className="course-meta-row">
+                    <span className="pill">{course.level}</span>
+                    <span className="pill">{course.duration}</span>
+                  </div>
                   <ul className="syllabus-list">
                     {course.syllabus.map((topic) => (
                       <li key={topic}>{topic}</li>

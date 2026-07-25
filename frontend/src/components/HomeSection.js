@@ -12,6 +12,16 @@ function HomeSection() {
         </div>
       </div>
 
+      <div className="section-nav">
+        <span>Home</span>
+        <span>All Courses</span>
+        <span>Registration</span>
+        <span>Gallery</span>
+        <span>Blog</span>
+        <span>Help</span>
+        <span>Contact</span>
+      </div>
+
       <div className="card-grid">
         <article className="info-card">
           <span className="badge">Flexible Learning</span>

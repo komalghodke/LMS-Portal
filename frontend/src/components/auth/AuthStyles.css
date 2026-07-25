@@ -1,0 +1,180 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 14px 40px rgba(15, 76, 129, 0.14);
+}
+
+.auth-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #17324d;
+}
+
+.auth-card p {
+  color: #5f6b77;
+  margin-bottom: 1.25rem;
+}
+
+.auth-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.auth-toggle button {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #dfe8f1;
+  border-radius: 999px;
+  background: #f7fbff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-toggle .active {
+  background: #0f4c81;
+  color: white;
+  border-color: #0f4c81;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #17324d;
+}
+
+.form-group input {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #dfe8f1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #0f4c81;
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+}
+
+.auth-button {
+  border: none;
+  border-radius: 8px;
+  background: #0f4c81;
+  color: white;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-button.small {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.secondary-button {
+  border: none;
+  border-radius: 8px;
+  background: #eaf4ff;
+  color: #0f4c81;
+  padding: 0.7rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-message {
+  margin-top: 0.9rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: #fff4e5;
+  color: #8a4b00;
+}
+
+.dashboard-shell {
+  padding: 1.25rem 0 2rem;
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(15, 76, 129, 0.12);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+}
+
+.dashboard-panel {
+  border: 1px solid #e8f0f8;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fbfdff;
+}
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #e8f0f8;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #0f4c81;
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
