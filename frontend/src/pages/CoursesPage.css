@@ -177,6 +177,12 @@
   font-weight: 600;
 }
 
+.error-message {
+  margin-top: 1rem;
+  color: #b42318;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .courses-hero {
     padding: 1.5rem;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CoursesPage.css';
 
 const initialCourses = [
@@ -40,18 +41,20 @@ function CoursesPage() {
   const [courses] = useState(initialCourses);
   const [selectedCourse, setSelectedCourse] = useState(initialCourses[0].title);
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
-    phone: '',
     course: initialCourses[0].title,
-    message: ''
+    location: '',
+    designation: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleCourseSelection = (courseTitle) => {
     setSelectedCourse(courseTitle);
     setFormData((prev) => ({ ...prev, course: courseTitle }));
     setSubmitted(false);
+    setStatusMessage('');
   };
 
   const handleInputChange = (event) => {
@@ -59,16 +62,36 @@ function CoursesPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      course: selectedCourse,
-      message: ''
-    });
+    setIsSubmitting(true);
+    setStatusMessage('');
+
+    try {
+      const response = await axios.post('/api/courses/1/enroll', {
+        ...formData,
+        course: selectedCourse
+      });
+
+      if (response.data.success) {
+        setSubmitted(true);
+        setStatusMessage('Registration saved successfully. Our team will contact you shortly.');
+        setFormData({
+          email: '',
+          course: selectedCourse,
+          location: '',
+          designation: ''
+        });
+      } else {
+        setSubmitted(false);
+        setStatusMessage(response.data.message || 'Registration failed. Please try again.');
+      }
+    } catch (error) {
+      setSubmitted(false);
+      setStatusMessage(error.response?.data?.message || 'Unable to connect to the server.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -115,18 +138,8 @@ function CoursesPage() {
         <h2>Register for {selectedCourse}</h2>
         <form className="registration-form" onSubmit={handleSubmit}>
           <label>
-            Full Name
-            <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
-          </label>
-
-          <label>
             Email Address
             <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
-          </label>
-
-          <label>
-            Phone Number
-            <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required />
           </label>
 
           <label>
@@ -141,17 +154,22 @@ function CoursesPage() {
           </label>
 
           <label>
-            Message
-            <textarea name="message" rows="4" value={formData.message} onChange={handleInputChange} placeholder="Tell us about your learning goals" />
+            Location
+            <input type="text" name="location" value={formData.location} onChange={handleInputChange} required />
           </label>
 
-          <button type="submit" className="submit-button">Submit Registration</button>
+          <label>
+            Designation
+            <input type="text" name="designation" value={formData.designation} onChange={handleInputChange} required />
+          </label>
+
+          <button type="submit" className="submit-button" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit Registration'}
+          </button>
         </form>
 
-        {submitted && (
-          <p className="success-message">
-            Thank you for registering! Our team will contact you shortly on 42234242423.
-          </p>
+        {statusMessage && (
+          <p className={submitted ? 'success-message' : 'error-message'}>{statusMessage}</p>
         )}
       </section>
     </div>

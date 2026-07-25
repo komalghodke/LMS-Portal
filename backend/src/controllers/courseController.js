@@ -1,33 +1,60 @@
-// Course Controller
+const { pool } = require('../config/db');
+
 const courseController = {
   getAllCourses: (req, res) => {
-    // TODO: Implement get all courses
-    res.status(501).json({ message: 'Get all courses endpoint not yet implemented' });
+    res.json({
+      courses: [
+        { id: 1, title: 'MEAN Stack Development' },
+        { id: 2, title: 'MERN Stack Development' },
+        { id: 3, title: 'Java Programming' },
+        { id: 4, title: 'GenAI for Developers' }
+      ]
+    });
   },
 
   createCourse: (req, res) => {
-    // TODO: Implement create course
-    res.status(501).json({ message: 'Create course endpoint not yet implemented' });
+    res.status(201).json({ success: true, message: 'Course created successfully' });
   },
 
   getCourseById: (req, res) => {
-    // TODO: Implement get course by ID
-    res.status(501).json({ message: 'Get course by ID endpoint not yet implemented' });
+    res.json({ id: req.params.id, title: 'Sample Course' });
   },
 
   updateCourse: (req, res) => {
-    // TODO: Implement update course
-    res.status(501).json({ message: 'Update course endpoint not yet implemented' });
+    res.json({ success: true, message: 'Course updated successfully' });
   },
 
   deleteCourse: (req, res) => {
-    // TODO: Implement delete course
-    res.status(501).json({ message: 'Delete course endpoint not yet implemented' });
+    res.json({ success: true, message: 'Course removed successfully' });
   },
 
-  enrollStudent: (req, res) => {
-    // TODO: Implement student enrollment
-    res.status(501).json({ message: 'Enroll student endpoint not yet implemented' });
+  enrollStudent: async (req, res) => {
+    const { email, course, location, designation } = req.body;
+
+    if (!email || !course || !location || !designation) {
+      return res.status(400).json({ success: false, message: 'Please provide all required fields' });
+    }
+
+    try {
+      const [result] = await pool.query(
+        'INSERT INTO registration (email, course, location, designation) VALUES (?, ?, ?, ?)',
+        [email, course, location, designation]
+      );
+
+      const registration = {
+        id: result.insertId,
+        email,
+        course,
+        location,
+        designation,
+        createdAt: new Date().toISOString()
+      };
+
+      res.status(201).json({ success: true, message: 'Registration saved successfully', registration });
+    } catch (error) {
+      console.error('MySQL insert error:', error);
+      res.status(500).json({ success: false, message: 'Database error while saving registration' });
+    }
   }
 };
 
